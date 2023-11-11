@@ -1,0 +1,1 @@
+cmd_/home/pranavix/Documents/drivers/Module.symvers := sed 's/\.ko$$/\.o/' /home/pranavix/Documents/drivers/modules.order | scripts/mod/modpost -m -a  -o /home/pranavix/Documents/drivers/Module.symvers -e -i Module.symvers   -T -

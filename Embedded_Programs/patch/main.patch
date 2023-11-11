@@ -1,0 +1,12 @@
+--- main.c	2023-02-05 10:49:51.682620122 +0530
++++ test.c	2023-02-05 13:22:04.246485020 +0530
+@@ -1,6 +1,7 @@
+ #include<stdio.h>
+-int main()
++int main(int argc,char *argv[])
+ {
+-	printf("Hello world\n");
++	printf("Hello pranav\n");
++	printf("comming\n");
+ 	return 0;
+ }

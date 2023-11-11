@@ -1,0 +1,230 @@
+#include<stdio.h>
+void binary(int *ptr,int g);
+#include<stdlib.h>
+void descend(int *ptr,int a);
+void helpdesk(void);
+void ascend(int *ptr,int a);
+void palindrome(int *ptr,char f);
+int main(int argc,char*argv[])
+{
+	char prog;
+	prog=argv[1][1];
+	printf("%d\n",argc);
+	if(argc<=2)
+	{
+		printf("The arguments given is too low\n");
+	}
+	else
+	{
+		printf("Usage: inp_op <option(s)> <strings>\n");
+                printf("Atleast one of the following switches must be given:\n");
+                printf("-a, --Binary value    -Displays binary values for the given inputs\n");
+                printf("-b, --Ascending order -Displays all the inputs in ascending order\n");
+                printf("-c, --Desending order -Displays all the inputs in descending order\n");
+                printf("-d, --Palindrome      -Displays if the given input is palindrome\n");
+                printf("-h, --Help\n");
+	}
+
+
+	int total=0;
+	int temp;
+	int stat=0,k, j;
+	int i,m=0;
+	int arr[argc-2];
+	for(i=2;i<argc;i++)
+	{	
+		printf("%d\t",i);
+		printf("current: %s\n",argv[i]);
+		stat=0;
+		total=0;
+		if(argv[i][0]=='-')
+		{
+			stat++;
+		}
+		for(k=stat;argv[i][k]!='\0';k++)
+		{
+			if((argv[i][k]>='0') &&(argv[i][k]<='9'))
+			{
+				temp=argv[i][k]-48;
+				total=total*10 + temp;
+			}
+			else
+			{
+				printf("Invalid input as a string to convert to integer\n");
+				exit(-1);
+			}
+			printf("%d\n",total);
+		}
+		if(stat==1)
+		{
+			total=-(total);
+		}
+		arr[m]=total;
+		m++;
+		printf("The loop iterations\n");
+	}
+	for(j=0;j< argc - 2;j++)
+	{
+		printf("The ELEMENTS IN THE ARRAY:----------(%d)\n",arr[j]);
+	}
+	switch(prog)
+	{
+		case 0:
+		//	printf("Successfully executed\n");
+			exit(0);
+		case 'a':
+			printf("Binary conversion\n");
+	                binary(arr,(argc-2));
+			break;
+		case 'b':
+			printf("D order\n");
+			descend(arr,(argc-2));
+			break;
+
+		case 'c':
+			printf("A order\n");
+			ascend(arr,(argc-2));
+			break;
+
+		case 'd':
+			printf("Palindrome number\n");
+			palindrome(arr,(argc-2));
+			break;
+
+		case 'h':
+			printf("Welcome to helpdesk\n");
+			helpdesk();
+
+	}
+}
+void binary(int *ptr,int g)
+{
+	int i,k;
+	unsigned int num;
+	printf("Enter the value to convert into binary:\n");
+	for(k=0;k<g;k++)
+	{
+
+		for(i=31;i>=0;i--)
+		{
+			if(ptr[k]>=0)
+			{
+				if((ptr[k] &(0x1<<i)) == 0)
+				{
+					printf("0");
+
+				}
+				else
+					printf("1");
+			}
+			else{
+				/*      k=~(num);
+					k++;*/
+
+
+				if((ptr[k] &(0x1<<i))==0)
+				{
+
+
+					printf("0");
+				}
+				else
+					printf("1");
+			}
+		}
+	        printf("\n");
+	}
+}
+void descend(int *ptr,int a)
+{
+	int i,j;
+	for(i=0;i<a;i++)
+	{
+		for(j=i+1;j<a;j++)
+		{
+			if(ptr[i]<ptr[j])
+			{
+				ptr[i]=ptr[i]^ptr[j];
+				ptr[j]=ptr[i]^ptr[j];
+				ptr[i]=ptr[i]^ptr[j];
+			}
+		}
+		printf("%d\n",ptr[i]);
+	}
+}
+
+void ascend(int *ptr,int a)
+{
+	int i,j;
+	for(i=0;i<a;i++)
+	{
+		for(j=i+1;j<a;j++)
+		{
+			if(ptr[i]>ptr[j])
+			{
+				ptr[i]=ptr[i]^ptr[j];
+				ptr[j]=ptr[i]^ptr[j];
+				ptr[i]=ptr[i]^ptr[j];
+			}
+		}
+		printf("%d\n",ptr[i]);
+	}
+}
+
+void palindrome(int *ptr,char f)
+{
+	int i;
+	int sum=0,rem,temp;
+	for(i=0;i<f;i++)
+	{
+		sum=0;
+		if(ptr[i]<0)
+			ptr[i]=-(ptr[i]);
+		temp=ptr[i];
+		while(temp!=0)
+		{
+			rem=temp%10;
+			sum=sum*10+rem;
+			temp=temp/10;
+			printf("The temp----[%d\n",sum);
+
+		}
+		if(sum==ptr[i])
+		{
+			printf("It is palindrome number-------(%d)\n",ptr[i]);
+		}
+		else
+			printf("It is not the palindrome number-------(%d)\n",ptr[i]);
+	}
+}
+
+void helpdesk(void)
+{
+        printf("Usage: inp_op <option(s)> <strings>\n");
+        printf("Atleast one of the following switches must be given:\n");
+        printf("-a, --Binary value    -Displays binary values for the given inputs\n");
+        printf("-b, --Ascending order -Displays all the inputs in ascending order\n");
+        printf("-c, --Desending order -Displays all the inputs in descending order\n");
+        printf("-d, --Palindrome      -Displays if the given input is palindrome\n");
+        printf("-h, --Help\n");
+}
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

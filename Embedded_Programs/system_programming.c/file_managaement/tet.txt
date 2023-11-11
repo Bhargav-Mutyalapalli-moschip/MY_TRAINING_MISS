@@ -1,0 +1,4 @@
+User interfaces
+Communication between a user and a computer is two-way. We know that one of the jobs of the operating system is to provide a 'user interface', so that a human can communicate with the hardware that makes up a computer. When you buy a piece of software, it too will have a user interface, so that you can access and use the software. A user will give data and instructions to a computer and a computer will give information back to a user. The way that a computer and a user communicate is known as the 'interface'. There are alternative terms to describe this. Another common term is the 'Human-Computer Interface' (HCI).
+
+Although we have just explained why you need a user interface, you should be able to describe them to really understand what they are all about. We will describe the different types of interface you might come across and identify their characteristi

@@ -1,0 +1,1 @@
+cmd_/home/pranavix/Documents/character_driver/driver.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/pranavix/Documents/character_driver/driver.ko /home/pranavix/Documents/character_driver/driver.o /home/pranavix/Documents/character_driver/driver.mod.o;  true

@@ -1,0 +1,1 @@
+cmd_/home/engineer/Documents/engineer@192.168.143.74/Module.symvers := sed 's/ko$$/o/' /home/engineer/Documents/engineer@192.168.143.74/modules.order | scripts/mod/modpost -m -a  -o /home/engineer/Documents/engineer@192.168.143.74/Module.symvers -e -i Module.symvers   -T -

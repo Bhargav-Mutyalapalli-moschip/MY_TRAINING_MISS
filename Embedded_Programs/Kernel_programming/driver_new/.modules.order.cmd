@@ -1,0 +1,1 @@
+cmd_/home/engineer/Documents/engineer@192.168.143.74/modules.order := {   echo /home/engineer/Documents/engineer@192.168.143.74/simpserial.ko; :; } | awk '!x[$$0]++' - > /home/engineer/Documents/engineer@192.168.143.74/modules.order

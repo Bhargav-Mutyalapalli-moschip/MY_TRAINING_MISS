@@ -1,0 +1,1 @@
+cmd_/home/engineer/Documents/engineer@192.168.143.74/simpserial.mod := printf '%s\n'   simpserial.o | awk '!x[$$0]++ { print("/home/engineer/Documents/engineer@192.168.143.74/"$$0) }' > /home/engineer/Documents/engineer@192.168.143.74/simpserial.mod

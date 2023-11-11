@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<signal.h>
+#include<sys/wait.h>
+#include<wait.h>
+int main()
+{
+	int i=0,var=0;
+	pid_t pid,cpid;
+	pid=fork();
+	if(pid < 0)
+	{
+		printf("Faile to create the child process\n");
+		exit(-1);
+	}
+	else if(pid > 0)
+	{
+		printf("Child process:%d\n",pid);
+		cpid=waitpid(pid,&var,WCONTINUED);
+		/*if(WIFEXITED(var))
+		printf("normal termiation id:%d\n",WEXITSTATUS(var));*/
+
+		printf("Child terminated id:%d\n",cpid);
+	}
+	else
+	{
+		while(i>=0)
+		{
+		printf("Child process:%d\n",getpid());
+		printf("parent process:%d\n",getppid());
+		printf("Child process:%d\n",pid);
+		i++;
+		}
+		kill(getpid(),20);
+		while(i<10000)
+		{
+		printf("Continuing.......:%d\n",getpid());
+		}
+		//exit(30);
+	}
+}
+
+
+	
+
+
+

@@ -1,0 +1,9 @@
+GDB is widely used in the development of complex software projects and is considered an essential tool
+for debugging programs at a low level. However, it requires some familiarity with the command-line
+interface and a basic understanding of the architecture of the program being debugged.
+To use GDB, you typically start by compiling your program with debugging symbols, which allow GDB to
+map the executable code back to the original source code. You then run GDB and provide it with the name
+of the executable file to debug. From there, you can use a variety of commands to set breakpoints, inspect
+variables, and step through the code.
+Overall, GDB is a powerful tool that can help developers track down and fix bugs in their code, making it
+an essential part of any software development toolkit.
