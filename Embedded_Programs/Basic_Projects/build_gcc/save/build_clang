@@ -1,0 +1,15 @@
+
+rm -rf build-*
+rm -rf llvm39
+
+svn co http://llvm.org/svn/llvm-project/llvm/branches/release_39/ llvm39
+cd llvm39
+cd tools
+svn co http://llvm.org/svn/llvm-project/cfe/branches/release_39/ clang
+cd ..
+cd ..
+mkdir build-clang
+cd build-clang
+cmake -DCMAKE_INSTALL_PREFIX=/opt/llvm39 -DLLVM_OPTIMIZED_TABLEGEN=ON ../llvm39/
+make
+make install

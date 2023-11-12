@@ -1,0 +1,27 @@
+
+export THEPLACE=/opt/llvm/llvm15riscv
+#export THETARGET=riscv-none-elf
+export THETARGET=riscv64-unknown-elf
+
+rm -rf $THEPLACE
+rm -rf llvm-project
+git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+git checkout llvmorg-15.0.1
+mkdir build
+cd build
+cmake \
+-DLLVM_ENABLE_PROJECTS='clang;lld' \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_CROSSCOMPILING=True \
+-DCMAKE_INSTALL_PREFIX=$THEPLACE \
+-DLLVM_DEFAULT_TARGET_TRIPLE=$THETARGET \
+-DLLVM_TARGETS_TO_BUILD=RISCV \
+-G "Unix Makefiles" \
+../llvm
+
+make -j 8
+make -j 4
+make
+sudo make install
+
